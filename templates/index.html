@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Ngosha Bulk Letters App - Professional Edition</title>
+    <title>Ngosha Bulk Letters - Fix</title>
     <link rel="icon" type="image/png" href="https://i.ibb.co/Vp8pXp7/Ngosha-Logo.png">
     
     <script src="https://cdn.tailwindcss.com"></script>
@@ -16,229 +16,170 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/FileSaver.js/2.0.5/FileSaver.min.js"></script>
 
     <style>
-        :root { 
-            --brand-green: #10b981; /* Emerald 500 */
-            --brand-dark-green: #065f46; /* Emerald 800 */
-            --bg-grey: #f1f5f9; /* Slate 100 */
-        }
-        body { background-color: var(--bg-grey); min-height: 100vh; color: #1e293b; font-family: 'Inter', sans-serif; }
-        
-        .card-custom {
+        body { background-color: #f1f5f9; color: #1e293b; font-family: 'Inter', sans-serif; }
+        .emerald-card {
             background: white;
-            border: 1px solid #e2e8f0;
+            border-top: 6px solid #10b981;
             border-radius: 1.5rem;
-            box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.05);
+            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
         }
-        
-        .btn-green {
-            background-color: var(--brand-green);
-            color: white;
+        .btn-emerald {
+            background-color: #10b981;
             transition: all 0.3s ease;
         }
-        .btn-green:hover {
-            background-color: var(--brand-dark-green);
-            transform: translateY(-2px);
-            box-shadow: 0 4px 12px rgba(16, 185, 129, 0.3);
+        .btn-emerald:hover {
+            background-color: #065f46;
+            transform: scale(1.02);
         }
-        
-        .modal { display: none; position: fixed; z-index: 200; left: 0; top: 0; width: 100%; height: 100%; background-color: rgba(15, 23, 42, 0.7); backdrop-filter: blur(4px); }
-        
-        .custom-scrollbar::-webkit-scrollbar { width: 4px; }
-        .custom-scrollbar::-webkit-scrollbar-thumb { background: #cbd5e1; border-radius: 10px; }
+        .log-box::-webkit-scrollbar { width: 4px; }
+        .log-box::-webkit-scrollbar-thumb { background: #10b981; border-radius: 10px; }
     </style>
 </head>
-<body class="flex flex-col items-center p-4 md:p-8">
+<body class="min-h-screen flex flex-col items-center p-4 md:p-10">
 
-    <div id="guideModal" class="modal flex items-center justify-center p-6">
-        <div class="card-custom max-w-2xl w-full p-8 animate__animated animate__zoomIn border-t-8 border-emerald-500">
-            <h2 class="text-2xl font-black text-emerald-800 mb-4 uppercase tracking-tight">Mwongozo wa Mfumo</h2>
-            <div class="text-slate-600 space-y-4 leading-relaxed">
-                <p class="bg-emerald-50 p-3 rounded-lg border-l-4 border-emerald-500">Huu ni mfumo wa kisasa wa kuzalisha barua nyingi kwa sekunde moja kwa kutumia kompyuta yako pekee.</p>
+    <div class="max-w-4xl w-full space-y-8">
+        <div class="emerald-card p-6 flex flex-col md:flex-row items-center justify-between gap-4 animate__animated animate__fadeIn">
+            <div class="flex items-center gap-4">
+                <img src="https://i.ibb.co/Vp8pXp7/Ngosha-Logo.png" alt="Logo" class="w-20 h-20 rounded-xl shadow-md border-2 border-emerald-100">
                 <div>
-                    <h3 class="font-bold text-emerald-700 uppercase text-xs mb-1">1. Kiolezo (Word):</h3>
-                    <p class="text-sm italic">Andika barua yako. Sehemu unayotaka ibadilike weka mabano ya mraba, mfano: <span class="bg-slate-200 px-1 rounded font-mono font-bold">[JINA]</span>.</p>
-                </div>
-                <div>
-                    <h3 class="font-bold text-emerald-700 uppercase text-xs mb-1">2. Data (Excel):</h3>
-                    <p class="text-sm italic">Hakikisha Excel ina Column yenye kichwa kile kile ulichoweka kwenye Word (mfano: JINA).</p>
-                </div>
-            </div>
-            <button onclick="toggleGuide()" class="mt-8 btn-green w-full py-3 rounded-xl font-bold uppercase tracking-widest">Nimeelewa, Tuendelee</button>
-        </div>
-    </div>
-
-    <div class="w-full max-w-5xl space-y-6">
-        
-        <header class="card-custom p-6 flex flex-col md:flex-row items-center justify-between gap-4 animate__animated animate__fadeInDown border-b-4 border-emerald-500">
-            <div class="flex items-center gap-5">
-                <img src="https://i.ibb.co/Vp8pXp7/Ngosha-Logo.png" alt="Logo" class="w-16 h-16 md:w-20 md:h-20 rounded-2xl shadow-sm border border-slate-100">
-                <div>
-                    <h1 class="text-xl md:text-2xl font-black text-slate-800 leading-tight">
-                        NGOSHA MULTIMEDIA <br>
-                        <span class="text-emerald-600 font-extrabold text-lg md:text-xl uppercase">Bulk Letters Generator</span>
+                    <h1 class="text-2xl font-black text-emerald-900 leading-tight uppercase">
+                        Imeletwa kwenu Bure Kabisa na <br>
+                        <span class="text-emerald-600">Ngosha Multimedia</span>
                     </h1>
-                    <p class="text-[10px] md:text-xs font-bold text-slate-400 uppercase tracking-[0.2em] mt-1">Powered by NgoshaChatBot</p>
+                    <p class="text-[10px] font-bold text-slate-400 tracking-[0.3em]">KUPITIA NGOSHACHATBOT</p>
                 </div>
             </div>
-            <div class="flex gap-2">
-                <button onclick="toggleGuide()" class="text-xs font-bold text-emerald-600 border border-emerald-200 px-5 py-2 rounded-full hover:bg-emerald-50 transition-all">MSAADA</button>
+            <div class="bg-emerald-50 px-4 py-2 rounded-full text-emerald-700 font-bold text-xs border border-emerald-200">
+                System: Client-Side v3.0
             </div>
-        </header>
+        </div>
 
-        <main class="grid grid-cols-1 lg:grid-cols-5 gap-6">
-            
-            <section class="lg:col-span-3 card-custom p-8 space-y-6 animate__animated animate__fadeInLeft">
-                <h2 class="text-sm font-black text-slate-400 uppercase tracking-widest border-b pb-3">Mipangilio ya Faili</h2>
-                
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
+            <div class="emerald-card p-8 animate__animated animate__slideInLeft">
+                <h2 class="text-sm font-black text-slate-400 uppercase tracking-widest mb-6 border-b pb-2">Pakia Faili</h2>
                 <div class="space-y-5">
-                    <div class="group">
-                        <label class="block text-[10px] font-black text-slate-500 uppercase mb-2 ml-1">1. Word Template (.docx)</label>
-                        <div class="relative">
-                            <input type="file" id="templateInput" accept=".docx" class="block w-full text-xs text-slate-500 file:mr-4 file:py-3 file:px-4 file:rounded-xl file:border-0 file:text-xs file:font-bold file:bg-emerald-50 file:text-emerald-700 hover:file:bg-emerald-100 border border-slate-200 rounded-xl cursor-pointer">
-                        </div>
+                    <div>
+                        <label class="block text-[10px] font-bold text-slate-500 uppercase mb-2">1. Word Template (.docx)</label>
+                        <input type="file" id="wordInput" accept=".docx" class="w-full text-xs text-slate-500 file:mr-4 file:py-2 file:px-4 file:rounded-lg file:border-0 file:text-xs file:font-bold file:bg-emerald-50 file:text-emerald-700 border border-slate-100 p-2 rounded-xl">
                     </div>
-
-                    <div class="group">
-                        <label class="block text-[10px] font-black text-slate-500 uppercase mb-2 ml-1">2. Excel Database (.xlsx)</label>
-                        <input type="file" id="excelInput" accept=".xlsx" class="block w-full text-xs text-slate-500 file:mr-4 file:py-3 file:px-4 file:rounded-xl file:border-0 file:text-xs file:font-bold file:bg-emerald-50 file:text-emerald-700 hover:file:bg-emerald-100 border border-slate-200 rounded-xl cursor-pointer">
+                    <div>
+                        <label class="block text-[10px] font-bold text-slate-500 uppercase mb-2">2. Excel Database (.xlsx)</label>
+                        <input type="file" id="excelInput" accept=".xlsx" class="w-full text-xs text-slate-500 file:mr-4 file:py-2 file:px-4 file:rounded-lg file:border-0 file:text-xs file:font-bold file:bg-emerald-50 file:text-emerald-700 border border-slate-100 p-2 rounded-xl">
                     </div>
-
-                    <div class="group">
-                        <label class="block text-[10px] font-black text-slate-500 uppercase mb-2 ml-1">3. Jina la Column (Kutoka Excel)</label>
-                        <input type="text" id="colInput" placeholder="Mfano: JINA au NAME" class="w-full text-sm font-bold text-slate-700 bg-slate-50 p-4 rounded-xl border border-slate-200 outline-none focus:border-emerald-500 focus:ring-2 focus:ring-emerald-100 transition-all">
-                        <p class="text-[9px] text-slate-400 mt-2 px-1 italic">* Hii itatumika kama jina la faili la kila barua inayozalishwa.</p>
+                    <div>
+                        <label class="block text-[10px] font-bold text-slate-500 uppercase mb-2">3. Jina la Column ya Excel (Mfano: JINA)</label>
+                        <input type="text" id="columnName" placeholder="Andika Column ya Majina..." class="w-full p-4 bg-slate-50 border border-slate-200 rounded-xl text-sm font-bold outline-none focus:border-emerald-500 transition-all">
                     </div>
-
-                    <button onclick="processFiles()" id="processBtn" class="w-full btn-green font-black py-5 rounded-2xl shadow-lg uppercase text-sm tracking-widest mt-4">
-                        Anza Kuzalisha Sasa
+                    <button onclick="processData()" id="runBtn" class="w-full btn-emerald text-white font-black py-4 rounded-xl shadow-lg uppercase text-sm tracking-widest">
+                        ZALISHA BARUA ZOTE
                     </button>
                 </div>
-            </section>
+            </div>
 
-            <section class="lg:col-span-2 card-custom p-8 flex flex-col animate__animated animate__fadeInRight bg-slate-50/50">
-                <h2 class="text-sm font-black text-slate-400 uppercase tracking-widest border-b pb-3 mb-6">Ufuatiliaji (Monitor)</h2>
-                
-                <div class="flex-grow flex flex-col justify-center space-y-8">
-                    <div class="text-center">
-                        <span id="percentageText" class="text-7xl font-black text-emerald-600 tracking-tighter">0%</span>
-                        <p class="text-[10px] font-black text-slate-400 uppercase mt-2 tracking-widest">Mchakato wa Uzalishaji</p>
+            <div class="emerald-card p-8 animate__animated animate__slideInRight flex flex-col">
+                <h2 class="text-sm font-black text-slate-400 uppercase tracking-widest mb-6 border-b pb-2">Ufuatiliaji (Monitor)</h2>
+                <div class="flex-grow flex flex-col justify-center text-center space-y-6">
+                    <div id="percentage" class="text-7xl font-black text-emerald-600 tracking-tighter">0%</div>
+                    <div class="w-full bg-slate-100 rounded-full h-3 border border-slate-200 overflow-hidden">
+                        <div id="progressBar" class="bg-emerald-500 h-full transition-all duration-300 w-0"></div>
                     </div>
-
-                    <div class="space-y-3">
-                        <div class="w-full bg-white rounded-full h-3 border border-slate-200 shadow-sm overflow-hidden">
-                            <div id="progressBar" class="bg-emerald-500 h-full rounded-full transition-all duration-300 w-0"></div>
-                        </div>
-                        <p id="statusText" class="text-[10px] text-emerald-700 font-black uppercase text-center tracking-widest">System Standby</p>
-                    </div>
-
-                    <div id="logContainer" class="bg-white border border-slate-200 p-4 rounded-xl text-[10px] font-mono text-slate-400 h-32 overflow-y-auto custom-scrollbar leading-relaxed">
-                        <div class="text-emerald-500 font-bold">>> Ngosha Engine v2.0 Ready...</div>
-                        <div class="mt-1">>> Waiting for input files...</div>
+                    <div id="logs" class="log-box bg-slate-50 border border-slate-100 p-4 rounded-xl h-32 overflow-y-auto text-[10px] font-mono text-slate-500 text-left leading-relaxed">
+                        >> System ready for transmission...
                     </div>
                 </div>
-            </section>
-        </main>
+            </div>
+        </div>
 
-        <footer class="text-center py-8 space-y-6">
-            <div class="animate__animated animate__pulse animate__infinite">
-                <a href="https://wa.me/255754644199?text=Habari%20Ngosha%20Multimedia,%20naomba%20msaada%20kuhusu%20Bulk%20Letters%20App" 
-                   target="_blank" class="inline-flex items-center bg-[#25D366] hover:bg-[#128C7E] text-white font-black py-4 px-10 rounded-full shadow-xl transition-all uppercase text-xs tracking-widest">
-                   <svg class="w-5 h-5 mr-3" fill="currentColor" viewBox="0 0 24 24"><path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.588-5.946 0-6.556 5.332-11.888 11.887-11.888 3.174 0 6.16 1.236 8.41 3.484 2.246 2.248 3.481 5.231 3.481 8.401 0 6.556-5.331 11.888-11.887 11.888-2.01 0-3.987-.512-5.744-1.484l-6.246 1.637zm5.852-3.645l.34.202c1.455.864 3.09 1.32 4.773 1.32 5.006 0 9.076-4.07 9.076-9.077s-4.07-9.076-9.076-9.076c-2.427 0-4.709.945-6.426 2.662-1.714 1.718-2.658 4.001-2.658 6.42 0 1.748.497 3.455 1.439 4.933l.223.351-1.01 3.692 3.774-.988z"></path></svg>
-                   Msaada wa Kiufundi (WhatsApp)
-                </a>
-            </div>
-            <div class="pt-4">
-                <p class="text-[10px] text-slate-400 font-black uppercase tracking-[0.5em]">© 2026 NGOSHA MULTIMEDIA INDUSTRIES</p>
-                <p class="text-[9px] text-emerald-600/50 font-bold uppercase mt-2 italic underline">Imeletwa kwenu Bure Kabisa kupitia NgoshaChatBot</p>
-            </div>
+        <footer class="text-center py-10">
+            <a href="https://wa.me/255754644199" target="_blank" class="inline-flex items-center bg-[#25D366] text-white px-8 py-4 rounded-full font-bold shadow-xl hover:scale-105 transition-all uppercase text-xs">
+                Msaada wa Haraka (WhatsApp)
+            </a>
+            <p class="mt-8 text-[10px] font-black text-slate-400 uppercase tracking-[0.4em]">© 2026 NGOSHA MULTIMEDIA INDUSTRIES</p>
         </footer>
     </div>
 
     <script>
-        function toggleGuide() {
-            const m = document.getElementById('guideModal');
-            m.style.display = m.style.display === 'flex' ? 'none' : 'flex';
+        function addLog(msg) {
+            const logs = document.getElementById('logs');
+            logs.innerHTML += `<div class="mt-1">>> ${msg}</div>`;
+            logs.scrollTop = logs.scrollHeight;
         }
 
-        function addLog(msg, isError = false) {
-            const l = document.getElementById('logContainer');
-            const color = isError ? 'text-red-500' : 'text-slate-500';
-            l.innerHTML += `<div class="${color} mt-1">>> ${msg}</div>`;
-            l.scrollTop = l.scrollHeight;
-        }
-
-        async function processFiles() {
-            const tempFile = document.getElementById('templateInput').files[0];
+        async function processData() {
+            const wordFile = document.getElementById('wordInput').files[0];
             const excelFile = document.getElementById('excelInput').files[0];
-            const colName = document.getElementById('colInput').value.trim();
+            const colName = document.getElementById('columnName').value.trim();
 
-            if (!tempFile || !excelFile || !colName) {
-                alert("Tafadhali kamilisha: Pandisha faili zote na uandike jina la Column!");
+            if (!wordFile || !excelFile || !colName) {
+                alert("Tafadhali pakia faili zote na uandike jina la Column!");
                 return;
             }
 
-            const btn = document.getElementById('processBtn');
+            const btn = document.getElementById('runBtn');
             btn.disabled = true; btn.innerText = "INACHAKATA...";
             addLog("Mchakato umeanza...");
 
             const reader = new FileReader();
             reader.onload = async (e) => {
-                const templateData = e.target.result;
-                const exReader = new FileReader();
-                exReader.onload = async (exE) => {
+                const templateContent = e.target.result;
+                const excelReader = new FileReader();
+
+                excelReader.onload = async (exE) => {
                     try {
-                        const workbook = XLSX.read(new Uint8Array(exE.target.result), {type: 'array'});
+                        const data = new Uint8Array(exE.target.result);
+                        const workbook = XLSX.read(data, {type: 'array'});
                         const sheet = workbook.Sheets[workbook.SheetNames[0]];
-                        const excelData = XLSX.utils.sheet_to_json(sheet);
-                        
-                        if (excelData.length === 0) throw new Error("Excel haina data!");
-                        
+                        const rows = XLSX.utils.sheet_to_json(sheet);
+
+                        if (rows.length === 0) throw new Error("Excel haina taarifa.");
+
                         const zip = new JSZip();
-                        const total = excelData.length;
-                        addLog(`Faili limekaliwa. Barua ${total} zinatayarishwa...`);
+                        const total = rows.length;
+                        addLog(`Imepatikana mistari ${total}. Inaanza kubadilisha tagi...`);
 
                         for (let i = 0; i < total; i++) {
-                            const zipContent = new PizZip(templateData);
-                            const doc = new window.docxtemplater(zipContent, { 
-                                paragraphLoop: true, 
-                                linebreaks: true 
+                            // MUHIMU: Tunatumia delimiters [ na ] hapa chini
+                            const pZip = new PizZip(templateContent);
+                            const doc = new window.docxtemplater(pZip, {
+                                delimiters: { start: "[", end: "]" },
+                                paragraphLoop: true,
+                                linebreaks: true
                             });
-                            
-                            doc.setData(excelData[i]);
+
+                            // Tunahakikisha data inasomeka vizuri
+                            doc.setData(rows[i]);
                             doc.render();
-                            
+
                             const out = doc.getZip().generate({type: "blob"});
-                            const fileNameValue = excelData[i][colName] || `Barua_${i+1}`;
-                            zip.file(`Barua_${fileNameValue}.docx`, out);
-                            
-                            // Progress UI
+                            const fileName = rows[i][colName] || `Barua_${i+1}`;
+                            zip.file(`Barua_${fileName}.docx`, out);
+
+                            // Update Progress
                             let p = Math.round(((i + 1) / total) * 100);
                             document.getElementById('progressBar').style.width = p + '%';
-                            document.getElementById('percentageText').innerText = p + '%';
-                            document.getElementById('statusText').innerText = `INAZALISHA: ${i+1} / ${total}`;
+                            document.getElementById('percentage').innerText = p + '%';
                             
-                            if (i % 20 === 0) await new Promise(r => setTimeout(r, 0));
+                            if (i % 15 === 0) await new Promise(r => setTimeout(r, 0));
                         }
+
+                        const finalZip = await zip.generateAsync({type: "blob"});
+                        saveAs(finalZip, "Ngosha_Bulk_Export.zip");
+                        addLog("KAZI IMEKAMILIKA! ZIP imepakuliwa.");
                         
-                        addLog("Inatengeneza faili la ZIP...");
-                        const finalZip = await zip.generateAsync({type:"blob"});
-                        saveAs(finalZip, "Ngosha_Bulk_Letters_Pack.zip");
-                        
-                        addLog("Kazi Imekamilika! ZIP imepakuliwa.");
-                        btn.disabled = false; btn.innerText = "ANZA KUZALISHA SASA";
-                        
-                        // Sauti ya mafanikio
-                        const s = new SpeechSynthesisUtterance("Kazi imekamilika mkuu");
+                        // Voice
+                        const s = new SpeechSynthesisUtterance("Kazi imekamilika mkuu Ngosha");
                         s.lang = 'sw-TZ'; window.speechSynthesis.speak(s);
 
                     } catch (err) {
-                        addLog("ERROR: " + err.message, true);
-                        btn.disabled = false; btn.innerText = "ANZA TENA";
+                        addLog("ERROR: " + err.message);
+                        console.error(err);
+                    } finally {
+                        btn.disabled = false; btn.innerText = "ZALISHA BARUA SASA";
                     }
                 };
-                exReader.readAsArrayBuffer(excelFile);
+                excelReader.readAsArrayBuffer(excelFile);
             };
-            reader.readAsArrayBuffer(tempFile);
+            reader.readAsArrayBuffer(wordFile);
         }
     </script>
 </body>
